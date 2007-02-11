@@ -1,13 +1,15 @@
 Gentoo-Probe version 0.01
 =========================
 
-Gentoo::Probe is a module to allow the Gentoo package database to be
+Gentoo::Probe is a set of modules to allow the Gentoo package database to be
 queried from perl.  It does alot of the stuff that qpkg did, but faster.
-Try the following commands:
-	pkg
-	pkg-files
-	pkg-of
 
+It also includes the following scripts:
+	pkg			# lists packages, with options
+	pkg-files	# given a package regex, list files.
+	pkg-of		# given a file regex, list containing package(s).
+	pkg-faq		# ask questions of portage, like portageq, but much faster
+				# if you ask more than one question.
 
 INSTALLATION
 

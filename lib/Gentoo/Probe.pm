@@ -1,5 +1,5 @@
 package Gentoo::Probe;
-our ($VERSION) = q(1.0.1);
+our ($VERSION) = q(1.0.2);
 #our(@ISA)=
 use strict; $|=1;
 
