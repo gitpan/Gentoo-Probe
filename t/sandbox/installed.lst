@@ -1,0 +1,17 @@
+16
+app-portage/gentoolkit
+app-portage/gentoolkit-dev
+app-portage/mirrorselect
+app-portage/ufed
+app-shells/bash
+app-shells/dsh
+app-shells/pdksh
+app-shells/rssh
+app-shells/sash
+app-shells/tcsh
+net-dns/bind-tools
+net-dns/djbdns
+net-dns/dnsquery
+net-wireless/gtkskan
+net-wireless/wireless-tools
+x11-libs/gtk+

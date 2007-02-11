@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+#    use Gentoo::Util::NoOutput;
+#    tie *STDOUT, NoOutput, ">&STDOUT";
+#    tie *STDERR, NoOutput, ">&STDERR";
+
+$|++;
+
+use Gentoo::Probe::PkgFiles;
+my $probe = Gentoo::Probe::PkgFiles->new(@ARGV);
+$probe->run();
