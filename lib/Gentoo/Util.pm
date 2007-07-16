@@ -43,7 +43,6 @@ sub chomped(@){
 sub file2map($) {
 	my (%res,$cnt);
 	($cnt,@_) = grep { length } map { split } suck(shift);
-	confess "mismatch(cnt=$cnt,#_=$#_,".Dumper(\@_).")" unless $cnt == @_;
 	$_=1 for ( @res{(@_)} );
 	\%res;
 };
@@ -53,9 +52,12 @@ sub suck($){
 	$fh->getlines();
 };
 sub linedump($){
-	use Data::Dumper;
-	${$Data::Dumper::{$_}}=1 for qw(Terse Useqq Purity Deparse);
-	return join(" ", split /\s*\n\s*/, Dumper($_[0]));
+	my $line = eval q(
+		use Data::Dumper;
+		${$Data::Dumper::{$_}}=1 for qw(Terse Useqq Purity Deparse);
+		Dumper($_[0]);
+	);
+	return join(" ", split /\s*\n\s*/, $line  );
 };
 sub assert_defined_failed() {
 	croak("assert_defined(".linedump([@_]).")");

@@ -27,10 +27,9 @@ sub files_output($$$@){
 sub	pkg_output($$$@){
 	return $_[0]->output($_[1].":".$_[2]);
 };
-sub do_output;
 sub new(@){
 	my $self = Gentoo::Probe::Cmd::new(@_);
-	if ( $self->verbose() > 1 ) {
+	if ( $self->verbose() ) {
 		*do_output=*pkg_output;
 	} else {
 		*do_output=*files_output;

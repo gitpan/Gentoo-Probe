@@ -46,16 +46,16 @@ for my $args ( sort keys %failures ) {
 	++$cnt;
 	for my $script (@scripts) {
 		my ( $ofile, $efile ) = map { $_ . $script . "." . $cnt } qw( tmp/stdout. tmp/stderr. );
-		my $cmd = "/usr/bin/perl $dirs ./blib/script/$script >$ofile 2>$efile  $args";
+		my $cmd = "/usr/bin/perl $dirs ./blib/bin/$script >$ofile 2>$efile  $args";
 		system $cmd;
 		my ($res,$exp)=( 0, ($failures{$script})?1:0);
 		$res++ if $?;
-		is($exp,$res,"exit code ($cmd)");
+		is($res,$exp,"exit code ($cmd)");
 		my @lines = grep /./, qx(cat $efile);
 		if ( !$res ) {
-			is("@lines","","$efile empty ($cmd)");
+			ok(@lines==0,"$efile empty ($cmd)");
 		} else {
-			ok(@lines>0, "$efile not empty ($cmd)");
+			ok(@lines>=1,"$efile not empty ($cmd)");
 		};
 	};
 };

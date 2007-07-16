@@ -7,7 +7,7 @@ sub import { goto \&Exporter::import };
 #use Text::Number;
 use Carp;
 use Gentoo::Probe;
-use Gentoo::Util::Opts qw(opts);
+use Getopt::WonderBra qw();
 
 sub do_args(\%@);
 sub usage(@);
@@ -22,6 +22,7 @@ our(%act) = (
 		"C"=>["case",             "don't ignore case"],
 		"d"=>["debug",            "debug"],
 		"v"=>["versions",         "show versions"],
+		"V"=>["verbose",          "verbose output"],
 		"b"=>["builds",           "show ebuilds"],
 	);
 
@@ -31,9 +32,7 @@ our(%act) = (
 sub new(@){
 	my $class = shift;
 	my %opts = map { %{$_} } shift if ref $_[0];
-	print Data::Dumper::Dumper({'%opts'=>\%opts}) if $opts{debug};
 	do_args(%opts,@_) or usage(2,"do_args failed\n");
-	print Data::Dumper::Dumper({'%opts'=>\%opts}) if $opts{debug};
 	my $self = Gentoo::Probe::new($class,\%opts);
 	$self->veto_args(\%opts);
 	return $self;
@@ -42,7 +41,7 @@ sub new(@){
 # display usage
 #############################################################################
 sub usage(@) {
-	my $code = shift;
+	my $code = @_;
 	select (STDERR) if $code;
 	print STDERR @_, "\n\n" if @_;
 	print split qr/^\s+/m, qq(
@@ -52,6 +51,11 @@ sub usage(@) {
 		print "   -", $_, "   ", $act{$_}->[1], "\n";
 	};
 	exit $code;
+}
+{
+	package main;
+	sub help { goto &Gentoo::Probe::Cmd::usage; };
+	sub version { goto &Gentoo::Probe::Cmd::usage; };
 }
 #############################################################################
 # parse up those args.
@@ -65,17 +69,7 @@ sub do_args(\%@){
 	for ( sort keys %act ) {
 		$opts->{name($_,1)}=undef;
 	};
-	eval {
-		@_=opts(join("",keys %act),@_);
-	};
-	if ( $_=$@ ) {
-		for ( m/(.*?) at/ ) {
-			if ( $_ eq "usage" || $_ eq "version" ) {
-				usage(0);
-			};
-		}
-		usage(1, $_);
-	};
+	@_=Getopt::WonderBra::getopt(join("",keys %act),@_);
 	while(($_=shift @_) ne '--'){
 		die "no dash in '$_'" unless s/^-//;
 		my ( $key, $val ) = do_arg(argdata($_),$_,@_);

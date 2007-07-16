@@ -4,19 +4,17 @@ bin/pkg-faq
 bin/pkg-files
 bin/pkg-of
 Changes
-CHECKSUMS
 GNUmakefile
 lib/Gentoo/Config.pm
 lib/Gentoo/Probe.pm
 lib/Gentoo/Probe/Cmd.pm
-lib/Gentoo/Probe/Opts.pm
 lib/Gentoo/Probe/Pkg.pm
 lib/Gentoo/Probe/PkgFiles.pm
 lib/Gentoo/Probe/PkgOf.pm
 lib/Gentoo/Util.pm
-lib/Gentoo/Util/Opts.pm
 Makefile.PL
-MANIFEST			This list of files
+MANIFEST
+MANIFEST.SKIP
 README
 t/00-create.t
 t/01-sandbox.t
@@ -27,10 +25,10 @@ t/05-inst.t
 t/06-pkg-script.t
 t/07-pkg-files.t
 t/08-pkg-of.t
-t/09-pkg.t
 t/99-cleanup.t
 t/common.pl
 t/sandbox/ebuilds.lst
+t/sandbox/inst_pat.lst
 t/sandbox/installed.lst
 t/sandbox/pat.lst
 t/sandbox/pkg-files.lst
@@ -965,6 +963,7 @@ t/sandbox/usr/portage/net-wireless/wireless-tools/wireless-tools-26_pre9.ebuild
 t/sandbox/usr/portage/net-wireless/wireless-tools/wireless-tools-27_pre17.ebuild
 t/sandbox/usr/portage/net-wireless/wireless-tools/wireless-tools-27_pre2-r1.ebuild
 t/sandbox/usr/portage/net-wireless/wireless-tools/wireless-tools-27_pre22.ebuild
+t/sandbox/usr/portage/profiles/arch.list
 t/sandbox/usr/portage/x11-libs/gtk+/ChangeLog
 t/sandbox/usr/portage/x11-libs/gtk+/files/digest-gtk+-1.2.10-r10
 t/sandbox/usr/portage/x11-libs/gtk+/files/digest-gtk+-1.2.10-r11
@@ -1365,4 +1364,5 @@ t/sandbox/var/db/pkg/x11-libs/gtk+-2.4.9/RDEPEND
 t/sandbox/var/db/pkg/x11-libs/gtk+-2.4.9/SLOT
 t/sandbox/var/db/pkg/x11-libs/gtk+-2.4.9/USE
 t/sandbox/vsfind.lst
+test.pl
 META.yml                                 Module meta-data (added by MakeMaker)

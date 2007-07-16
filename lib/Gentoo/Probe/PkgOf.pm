@@ -27,7 +27,7 @@ sub accept($$$@) {
 	my @pats = @{$self->{xpats}};
 	local $\="";
 	for ( @_ ) {
-		my $fname = $base . "-" . $_ . "/CONTENTS";
+		my $fname = $self->{vdb_dir}.'/'.$base . "-" . $_ . "/CONTENTS";
 		local *FILE;
 		my $res = open(FILE,"< $fname");
 		return unless defined $res;

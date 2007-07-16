@@ -1,11 +1,9 @@
 package Gentoo::Probe;
-our ($VERSION) = q(1.0.2);
-#our(@ISA)=
+our ($VERSION) = q(1.0.4);
 use strict; $|=1;
 
 sub import { goto \&Exporter::import };
 use Gentoo::Util;
-use Gentoo::Config;
 use Cwd;
 our(@mods);
 my (%defs) = (
@@ -14,7 +12,7 @@ my (%defs) = (
 			'case'         =>  1,
 			'versions'     =>  0,
 			'builds'       =>  0,
-			'verbose'      =>  1,
+			'verbose'      =>  0,
 			'latest'       =>  0,
 			'pats'         =>  [],
 			'cfgdir'       =>  undef,
@@ -23,7 +21,16 @@ my (%defs) = (
 );
 my $cfg;
 sub cfg {
-	$cfg || ($cfg = new Gentoo::Config);
+	$cfg ||= do {
+		local $_ = eval q{
+			use Gentoo::Config;
+			new Gentoo::Config;
+		};
+		die "$@" if "$@";
+		die "no cfg!" unless defined $_;
+		$_;
+	};
+	$cfg;
 };
 sub output {
 	my $self = shift;
@@ -36,7 +43,7 @@ sub overdir {
 	$_[0]->{overdir};
 };
 sub vdb_dir {
-	$_[0]->{vdb_dir} || "/var/db/pkg";
+	$_[0]->{vdb_dir};
 };
 sub new {
 	local $_;
@@ -50,10 +57,13 @@ sub new {
 	for($self->{portdir}) {
 		$_= cfg()->get(qw(PORTDIR)) unless defined;
 	};
+	for($self->{vdb_dir}) {
+		$_= cfg()->get(qw(VDB_DIR),"/var/db/pkg") unless defined;
+	}
 	for($self->{overdir}) {
 		$_= cfg()->get(qw(PORTDIR_OVERLAY),"") unless defined;
 	};
-	for ( $self->{portdir}, $self->{vdb_dir} ) {
+	for ( @{$self}{qw(portdir vdb_dir overdir)} ) {
 		next unless defined;
 		$_ = getcwd()."/".$_ unless m{^/};
 		$_.="/";
@@ -80,36 +90,29 @@ sub new {
 	};
 	return $self;
 };
-sub ls_vers {
-	local *DIR;
+sub ls_uver($$) {
 	my $self = shift;
 	my $cat = shift;
 	my $pkg = shift;
-	# Damn package name fits version pattern.
-	warn "got canna!" if $pkg eq "canna";
-	my @res;
-	my $dir = join("/", $cat, $pkg );
-	if ( $self->uninstalled() ) {
-		warn "opendir:$dir:$!\n" && return () unless opendir(DIR,$dir);
-		for ( readdir(DIR) ){
-			my $xpkg = substr($_,0,length($pkg)+1,"");
-			next unless $xpkg eq $pkg."-";
-			next unless s/\.ebuild$//;
-
-			push(@res,$_);
-		};
-		closedir(DIR);
-	} else {
-		for ( glob("$dir*") ){
-			my $xdir = substr($_,0,length($dir)+1,"");
-			next unless $xdir eq $dir."-";
-			push(@res,$_);
-		};
-	}
-	return sort @res;
+	my $pre = $self->{portdir}."/".$cat."/".$pkg."/$pkg-";
+	my $len = length($pre);
+	@_ = glob("${pre}*.ebuild");
+	@_ = map { substr($_,$len) } @_;
+	@_ = map { substr($_,0,-7) } @_;
+	@_;
+};
+sub ls_iver($$) {
+	my $self = shift;
+	my $cat = shift;
+	my $pkg = shift;
+	my $pre = $self->{vdb_dir}."/".$cat."/".$pkg."-";
+	my $len = length($pre);
+	@_ = glob("${pre}[0-9]*");
+	@_ = map { substr($_,$len) } @_;
+	@_;
 };
 sub ls_pkgs($$){
-	return sort map {
+	return map {
 		if ( /^canna-2ch/ ) {
 			s/-2ch-[0-9].*/-2ch/;
 		} elsif ( /^font-adobe-\d+dpi/ ) {
@@ -127,18 +130,10 @@ sub ls_dirs($$){
 		@x=grep {
 			$_ ne '.' && $_ ne 'CVS' && $_ ne '..' && -d $dir."/".$_
 		} @x;
-		return sort @x;
+		return @x;
 	};
 	return () if $allowfail;
 	confess "opendir:$dir:$!\n";
-};
-sub search_dir {
-	my $self = shift;
-	if ( $self->uninstalled() ) {
-		return $self->portdir();
-	} else {
-		return $self->vdb_dir();
-	};
 };
 sub accept($$$@) {
 	my ( $self, $cat, $pkg, @vers ) = @_;
@@ -172,38 +167,50 @@ sub check_pats($@){
 	};
 	return 0;
 };
-sub prime_seen(\%$){
-	our(%seen);
-	local(*seen)=shift;
-	$seen{$_}++ for ( ls_pkgs(shift,1) )
-}
 sub run($) {
 	my $self=shift;
-	my $base = $self->search_dir();
-	my $inst = $self->installed();
-	my $unin = $self->uninstalled();
 	my $idir = $self->vdb_dir();
-	my $pkg;
-	my $ver;
-	my $cat;
+	my $udir = $self->portdir();
 	my @pats = @{$self->{pats}};
 
-	die unless $inst || $unin;
+	my %cat;
+	$cat{$_} = undef for(grep { /-/ } ls_dirs($udir,0));
+	$cat{$_} = undef for(grep { /-/ } ls_dirs($idir,0));
+	my $x=0;
+	for my $cat ( sort keys %cat ) {
+		my %pkg;
+		$pkg{$_} |= 1 for(ls_pkgs("$udir/$cat",1));
+		$pkg{$_} |= 2 for(ls_pkgs("$idir/$cat",1));
 
-	xchdir($base);
-	my @cats = ls_dirs(".",0);
-	for $cat ( @cats ) {
-		next unless $cat =~ /-/;
-		my %seen;
-		prime_seen(%seen,$idir."/".$cat) unless $inst;
-		my @pkg = grep { !$seen{$_}++ } ls_pkgs($cat,0);
+		if(!$self->installed()){
+			for(keys %pkg) {
+				delete $pkg{$_} if $pkg{$_} & 2;
+			};
+		};
+		if(!$self->uninstalled()){
+			for(keys %pkg) {
+				delete $pkg{$_} unless $pkg{$_} & 2;
+			};
+		};
 
-		for $pkg ( @pkg ) {
+		for my $pkg ( sort keys %pkg ) {
 			my $qua = $cat."/".$pkg;
-			next unless $self->check_pats( $cat . "/" . $pkg , @pats );
+			next unless $self->check_pats( $qua , @pats );
 			if ( $self->versions() ) {
-				my @builds = $self->ls_vers($cat,$pkg);
-				$self->accept($cat,$pkg,@builds);
+				my %ver;
+				$ver{$_} |= 1 for $self->ls_uver($cat,$pkg);
+				$ver{$_} |= 2 for $self->ls_iver($cat,$pkg);
+#    				if(!$self->installed()){
+#    					for(keys %ver) {
+#    						delete $ver{$_} if $ver{$_} & 2;
+#    					};
+#    				};
+				if(!$self->uninstalled()){
+					for(keys %ver) {
+						delete $ver{$_} unless $ver{$_} & 2;
+					};
+				};
+				$self->accept($cat,$pkg,sort keys %ver);
 			} else {
 				$self->accept($cat,$pkg);
 			}

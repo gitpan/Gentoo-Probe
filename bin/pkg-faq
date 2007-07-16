@@ -1,10 +1,11 @@
 #!/usr/bin/perl
-
+$|++;
 use Term::ReadLine;
 use Gentoo::Config;
+use UNIVERSAL qw(isa);
+use strict;
 
 my $cfg = new Gentoo::Config;
-
 if ( @ARGV ) {
 	*nextline = sub() { return shift @ARGV };
 } elsif ( -t 0 ) {
@@ -19,7 +20,9 @@ if ( @ARGV ) {
 while(defined($_=nextline())){
 	for ( split ) {
 		my $v = $cfg->get($_,undef);
-		if (defined $v) {
+		if (isa($v,'ARRAY')){
+			print "$_=(\n\t",join("\n\t",@$v).")\n";
+		} elsif (defined $v) {
 			print "$_=\"$v\"\n";
 		} else {
 			print "$_=\n";

@@ -6,7 +6,7 @@ use strict;$|=1;
 use Gentoo::Probe::Cmd;
 use Carp;
 
-sub veto_args() {
+sub veto_args(%) {
 	1;
 }
 1;

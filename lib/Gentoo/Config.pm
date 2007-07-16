@@ -1,7 +1,9 @@
 package Gentoo::Config;
 use Carp;
+
 our($VERSION)=__VERSION__;
 our(@ISA) = qw(Inline::Python::Object);
+
 use strict;$|=1;
 BEGIN { 
 	my $dir = "$ENV{HOME}/.Inline";
@@ -30,8 +32,10 @@ EOF
 sub get {
 	my $self = shift;
 	my $key = shift;
-	
-	if ( $self->has_key($key) ) {
+
+	if ( $key eq 'KEYS' ) {
+		return $self->keys();
+	} elsif ( $self->has_key($key) ) {
 		return $self->_get($key);
 	} elsif ( @_ ) {
 		return shift @_;

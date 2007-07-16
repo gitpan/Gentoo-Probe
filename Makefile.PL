@@ -9,12 +9,19 @@ WriteMakefile
 		bin/pkg     bin/pkg-files
 		bin/pkg-of  bin/pkg-faq
 	)],
+	'PM_FILTER' => 'sed s/__VERSION__/q{$(VERSION)}/',
+	'INST_SCRIPT' => './blib/bin',
 	'VERSION_FROM' => 'lib/Gentoo/Probe.pm',
 	'PREREQ_PM' => {
 		'Text::Number' => '0.8',
 		'Inline::Python' => '0.22',
-		'String::Escape' => 0,
-		'Term::ReadLine' => 1.02
+		'String::Escape' => '0',
+		'Term::ReadLine' => '1.02',
+		'Getopt::WonderBra' => '1.04',
 	},
 	'PREREQ_FATAL' => 0,
+	'dist' => {
+		'CI' => 'cvs commit',
+		'RCS_LABEL' => 'cvs tag V$(VERSION_SYM)',
+	}
 );

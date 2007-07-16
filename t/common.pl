@@ -32,7 +32,6 @@ sub runtest(@) {
 	unless ( -e $data{rfile} ) {
 		print STDERR "Creating new ref file: ", $data{rfile},"\n";
 		my $obj = new Test::Gentoo::Probe(\%data);
-		#print $obj->rfile();
 		$obj->make_ref();
 	};
 	confess "$data{rfile} doesn't exist" unless -e $data{rfile};
@@ -97,7 +96,7 @@ sub run {
 	chomp(@{$rlist});
 	confess "line count != #lines in ".$self->rfile() unless $cnt == @{$rlist};
 	$self->SUPER::run();
-	is(scalar(@$rlist),scalar(@$plist),"sizes match '".$self->rfile()."'");
+	is(scalar(@$plist),scalar(@$rlist),"sizes match '".$self->rfile()."'");
 	is_deeply($plist,$rlist,"lists match '".$self->rfile()."'");
 	delete $self->{rlist};
 	delete $self->{plist};
