@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtk+extra/gtk+extra-0.99.17.ebuild,v 1.15 2004/09/03 15:35:19 pvdabeel Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/x11-libs/gtk+extra/gtk+extra-0.99.17.ebuild,v 1.1 2004/09/11 05:24:52 rich Exp $
 
 DESCRIPTION="Useful set of widgets for creating GUI's for the Xwindows system using GTK+."
 HOMEPAGE="http://gtkextra.sourceforge.net/"

@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/hostap-driver/hostap-driver-0.1.2-r2.ebuild,v 1.2 2004/04/27 22:11:15 agriffis Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/net-wireless/hostap-driver/hostap-driver-0.1.2-r2.ebuild,v 1.1 2004/06/20 09:09:36 linguist Exp $
 
 # pcmcia eclass inherits eutils
 inherit pcmcia eutils

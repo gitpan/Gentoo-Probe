@@ -7,8 +7,9 @@ use Gentoo::Config;
 use Data::Dumper;
 use Carp;
 use strict;
+$ENV{PORTDIR}="$ENV{PWD}/t/sandbox/usr/portage";
+$ENV{VDB_DIR}="$ENV{PWD}/t/sandbox/var/db/pkg";
 $SIG{__DIE__}=sub {
-	print STDERR "\n\nHelp!  am am about to die of: @_\n\n\n";
 	confess @_;
 };
 our ( $tests, @scripts, %failures );
@@ -41,20 +42,29 @@ mkdir "tmp", 0700 or confess "I just needed it for a while!\nmkdir:tmp:$!\n";
 my $dirs = join(" ", map { "-I".$ENV{PWD}."/".$_; } qw(blib/lib blib/arch));
 
 my $cnt = 0;
+for("tmp/pkg-script-runs.log") {
+	open(RUNLOG, ">", $_) or die "open:>,$_:$!";
+	use Time::HiRes;
+}
 for my $args ( sort keys %failures ) {
 	local %failures = %{$failures{$args}};
 	++$cnt;
 	for my $script (@scripts) {
 		my ( $ofile, $efile ) = map { $_ . $script . "." . $cnt } qw( tmp/stdout. tmp/stderr. );
 		my $cmd = "/usr/bin/perl $dirs ./blib/bin/$script >$ofile 2>$efile  $args";
+		my $time = Time::HiRes::time;
 		system $cmd;
+		$time = Time::HiRes::time - $time;
+		printf RUNLOG "%10f %s\n", $time, "$script $args";
 		my ($res,$exp)=( 0, ($failures{$script})?1:0);
 		$res++ if $?;
 		is($res,$exp,"exit code ($cmd)");
 		my @lines = grep /./, qx(cat $efile);
 		if ( !$res ) {
+			$DB::single=1 unless (@lines==0);
 			ok(@lines==0,"$efile empty ($cmd)");
 		} else {
+			$DB::single=1 unless (@lines>=1);
 			ok(@lines>=1,"$efile not empty ($cmd)");
 		};
 	};

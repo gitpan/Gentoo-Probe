@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/gentoolkit-dev/gentoolkit-dev-0.2.0_pre3.ebuild,v 1.5 2004/06/11 01:14:16 pylon Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-portage/gentoolkit-dev/gentoolkit-dev-0.2.0_pre3.ebuild,v 1.1 2004/06/20 09:09:34 linguist Exp $
 
 DESCRIPTION="Collection of developer scripts for Gentoo"
 HOMEPAGE="http://www.gentoo.org/~karltk/projects/gentoolkit/"

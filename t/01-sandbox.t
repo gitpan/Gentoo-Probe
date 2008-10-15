@@ -74,6 +74,5 @@ sub run {
 	return @{$self->{lines}};
 };
 package main;
-my %data;
-my $probe = Test::Gentoo::Probe->new(\%data);
+my $probe = Test::Gentoo::Probe->new();
 is(ref $probe, q(Test::Gentoo::Probe), "Got right class");

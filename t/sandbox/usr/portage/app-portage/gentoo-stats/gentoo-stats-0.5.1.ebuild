@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/gentoo-stats/gentoo-stats-0.5.1.ebuild,v 1.1 2004/03/29 00:12:39 mksoft Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-portage/gentoo-stats/gentoo-stats-0.5.1.ebuild,v 1.1 2004/06/20 09:09:34 linguist Exp $
 
 DESCRIPTION="Gentoo Linux usage statistics client daemon"
 HOMEPAGE="http://mksoft.co.il/gentoo-stats/"

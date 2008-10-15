@@ -15,9 +15,9 @@ WriteMakefile
 	'PREREQ_PM' => {
 		'Text::Number' => '0.8',
 		'Inline::Python' => '0.22',
-		'String::Escape' => '0',
-		'Term::ReadLine' => '1.02',
 		'Getopt::WonderBra' => '1.04',
+		'String::Escape' => 0,
+		'Term::ReadLine' => '1.02',
 	},
 	'PREREQ_FATAL' => 0,
 	'dist' => {

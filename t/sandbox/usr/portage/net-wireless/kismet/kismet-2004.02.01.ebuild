@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/kismet/kismet-2004.02.01.ebuild,v 1.3 2004/06/15 03:17:15 agriffis Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/net-wireless/kismet/kismet-2004.02.01.ebuild,v 1.1 2004/06/20 09:09:36 linguist Exp $
 
 MY_P=${P/2004.02/feb.04}
 ETHEREAL_VERSION="0.9.13"

@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/smrsh/smrsh-8.12.10.ebuild,v 1.3 2004/05/30 09:21:49 robbat2 Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-shells/smrsh/smrsh-8.12.10.ebuild,v 1.1 2004/06/20 09:09:35 linguist Exp $
 
 DESCRIPTION="Sendmail restricted shell, for use with MTAs other than Sendmail."
 HOMEPAGE="http://www.sendmail.org"

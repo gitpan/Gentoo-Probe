@@ -1,6 +1,5 @@
 #!/usr/bin/perl
-#   /* vim: set ft=perl ai tw=75: */
-
+# vim: set ft=perl ai tw=75:
 use strict;
 use Test::More tests => 2;
 

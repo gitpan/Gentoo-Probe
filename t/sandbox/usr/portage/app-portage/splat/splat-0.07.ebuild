@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/splat/splat-0.07.ebuild,v 1.4 2004/05/04 22:49:57 kloeri Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-portage/splat/splat-0.07.ebuild,v 1.1 2004/06/20 09:09:34 linguist Exp $
 
 DESCRIPTION="Simple Portage Log Analyzer Tool"
 SRC_URI="http://www.l8nite.net/projects/splat/downloads/${P}.tar.bz2"

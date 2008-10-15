@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/ccsh/ccsh-0.0.4-r2.ebuild,v 1.14 2004/03/14 13:26:49 mr_bones_ Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-shells/ccsh/ccsh-0.0.4-r2.ebuild,v 1.1 2004/06/20 09:09:34 linguist Exp $
 
 DESCRIPTION="UNIX Shell for people already familiar with the C language"
 SRC_URI="http://download.sourceforge.net/ccsh/${P}.tar.gz"

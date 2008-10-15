@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtk+/gtk+-2.4.4.ebuild,v 1.10 2004/08/30 21:42:19 tgall Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/x11-libs/gtk+/gtk+-2.4.4.ebuild,v 1.1 2004/09/11 05:21:25 rich Exp $
 
 inherit libtool flag-o-matic eutils
 

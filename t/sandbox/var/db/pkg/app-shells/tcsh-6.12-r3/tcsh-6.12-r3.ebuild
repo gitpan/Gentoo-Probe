@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /home/cvsroot/gentoo-x86/app-shells/tcsh/tcsh-6.12-r3.ebuild,v 1.2 2004/03/14 13:27:41 mr_bones_ Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/var/db/pkg/app-shells/tcsh-6.12-r3/tcsh-6.12-r3.ebuild,v 1.1 2004/06/20 09:09:38 linguist Exp $
 
 MY_P="${PN}-${PV}.00"
 DESCRIPTION="Enhanced version of the Berkeley C shell (csh)"

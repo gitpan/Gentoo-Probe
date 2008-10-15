@@ -1,5 +1,5 @@
 package Gentoo::Probe;
-our ($VERSION) = q(1.0.4);
+our ($VERSION) = q(1.0.6);
 use strict; $|=1;
 
 sub import { goto \&Exporter::import };
@@ -48,8 +48,9 @@ sub vdb_dir {
 sub new {
 	local $_;
 	my $class = shift;
-	my $passed = shift;
-	confess "usage: new Gentoo::Probe(\%parms) [got: ", $passed, "]" unless ref $passed;
+	my $passed = @_ ? shift : {};
+	confess "usage: new Gentoo::Probe(\%parms) [got: ", $passed, "]" 
+		unless ref $passed;
 	my %data = ( %defs, %{$passed} );
 	my $self=\%data;
 	bless($self,$class);

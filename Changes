@@ -1,11 +1,13 @@
 Revision history for Perl extension Gentoo::Probe.
 
-__VERSION__:
+ver 1.0.5: Sat May 10 06:53:34 EDT 2008
+	Removed useless and annoying CHLD signal handler from bin/pkg.
 
+ver 1.0.4:
 	Added MANIFEST depends to GNUmakefile for targets like dist.
 
-	Added automated version updates to Makefile.PL.  Uses sed to replace __VERSION__ with
-	the value of $VERSION from Gentoo::Probe.
+	Added automated version updates to Makefile.PL.  Uses sed to replace
+	__VERSION__ with the value of $VERSION from Gentoo::Probe.
 
 	Added cvs ci and cvs tag commands to Makefile.PL
 

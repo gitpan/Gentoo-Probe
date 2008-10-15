@@ -1,6 +1,6 @@
 #compdef emerge rc-update rc-status ebuild opengl-update rc
 
-# $Id: _portage-20040204,v 1.1 2004/02/04 15:32:45 usata Exp $
+# $Id: _portage-20040204,v 1.1 2004/06/20 09:09:35 linguist Exp $
 
 # ZSH completion function for Portage
 # Author: baptux <bapt@ifrance.com>

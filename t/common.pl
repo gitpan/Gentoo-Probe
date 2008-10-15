@@ -33,6 +33,7 @@ sub runtest(@) {
 		print STDERR "Creating new ref file: ", $data{rfile},"\n";
 		my $obj = new Test::Gentoo::Probe(\%data);
 		$obj->make_ref();
+		exit(1);
 	};
 	confess "$data{rfile} doesn't exist" unless -e $data{rfile};
 	my $obj = new Test::Gentoo::Probe(\%data);

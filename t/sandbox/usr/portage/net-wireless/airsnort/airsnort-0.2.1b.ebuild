@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/airsnort/airsnort-0.2.1b.ebuild,v 1.6 2004/01/26 19:30:13 weeve Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/net-wireless/airsnort/airsnort-0.2.1b.ebuild,v 1.1 2004/06/20 09:09:36 linguist Exp $
 
 MY_P=${P/a/A}
 S=${WORKDIR}/${MY_P}

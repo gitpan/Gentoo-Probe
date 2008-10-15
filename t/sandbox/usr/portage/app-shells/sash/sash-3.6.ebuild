@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/sash/sash-3.6.ebuild,v 1.15 2004/06/02 14:56:17 agriffis Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-shells/sash/sash-3.6.ebuild,v 1.1 2004/06/20 09:09:35 linguist Exp $
 
 inherit eutils
 

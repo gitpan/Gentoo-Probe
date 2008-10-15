@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/tcsh/tcsh-6.11.ebuild,v 1.12 2004/03/14 13:27:41 mr_bones_ Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-shells/tcsh/tcsh-6.11.ebuild,v 1.1 2004/06/20 09:09:35 linguist Exp $
 
 IUSE="perl"
 

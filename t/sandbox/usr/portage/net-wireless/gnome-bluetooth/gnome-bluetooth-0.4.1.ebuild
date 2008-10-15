@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/gnome-bluetooth/gnome-bluetooth-0.4.1.ebuild,v 1.9 2004/04/27 22:10:13 agriffis Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/net-wireless/gnome-bluetooth/gnome-bluetooth-0.4.1.ebuild,v 1.1 2004/06/20 09:09:36 linguist Exp $
 
 inherit gnome2 eutils
 

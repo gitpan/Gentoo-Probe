@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/wavemon/wavemon-0.4.0b.ebuild,v 1.6 2004/06/13 19:52:59 hanno Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/net-wireless/wavemon/wavemon-0.4.0b.ebuild,v 1.1 2004/06/20 09:09:37 linguist Exp $
 
 inherit eutils
 

@@ -47,7 +47,7 @@ my $test2 = Gentoo::Probe->new({ %data });
 sub data_test($){
 	my $key = shift;
 	my $val = $data{$key};
-	$val =~ s#/*$#/# if ( $key eq 'portdir' || $key eq 'vdb_dir' );
+	$val =~ s{/*$}{/} if ( $key eq 'portdir' || $key eq 'vdb_dir' );
 
 	my $objval = eval "\$test2->$_()";
 	confess "$@" if "$@";

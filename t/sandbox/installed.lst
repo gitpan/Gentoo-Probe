@@ -1,4 +1,4 @@
-16
+18
 app-portage/gentoolkit
 app-portage/gentoolkit-dev
 app-portage/mirrorselect
@@ -9,6 +9,8 @@ app-shells/pdksh
 app-shells/rssh
 app-shells/sash
 app-shells/tcsh
+media-fonts/font-adobe-100dpi
+media-fonts/font-adobe-75dpi
 net-dns/bind-tools
 net-dns/djbdns
 net-dns/dnsquery

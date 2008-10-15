@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /home/cvsroot/gentoo-x86/app-shells/pdksh/pdksh-5.2.14-r4.ebuild,v 1.19 2004/04/15 23:46:36 randy Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/var/db/pkg/app-shells/pdksh-5.2.14-r4/pdksh-5.2.14-r4.ebuild,v 1.1 2004/06/20 09:09:37 linguist Exp $
 
 inherit eutils
 

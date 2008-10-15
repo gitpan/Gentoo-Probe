@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /home/cvsroot/gentoo-x86/net-dns/djbdns/djbdns-1.05-r9.ebuild,v 1.2 2004/04/10 02:28:28 kumba Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/var/db/pkg/net-dns/djbdns-1.05-r9/djbdns-1.05-r9.ebuild,v 1.1 2004/06/20 09:09:38 linguist Exp $
 
 IUSE="ipv6 static fwdzone roundrobin"
 

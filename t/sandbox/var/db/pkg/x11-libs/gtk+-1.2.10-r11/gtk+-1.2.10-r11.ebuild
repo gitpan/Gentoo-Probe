@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /home/cvsroot/gentoo-x86/x11-libs/gtk+/gtk+-1.2.10-r11.ebuild,v 1.3 2004/04/15 02:24:36 geoman Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/var/db/pkg/x11-libs/gtk+-1.2.10-r11/gtk+-1.2.10-r11.ebuild,v 1.1 2004/09/11 05:17:17 rich Exp $
 
 GNOME_TARBALL_SUFFIX="gz"
 inherit gnome.org eutils libtool

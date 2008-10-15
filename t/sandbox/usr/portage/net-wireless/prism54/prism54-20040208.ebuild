@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/prism54/prism54-20040208.ebuild,v 1.5 2004/06/07 04:02:29 agriffis Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/net-wireless/prism54/prism54-20040208.ebuild,v 1.1 2004/06/20 09:09:36 linguist Exp $
 
 MY_P=${P/prism54-/prism54-cvs}
 DESCRIPTION="Driver for Intersil Prism GT / Prism Duette wireless chipsets"

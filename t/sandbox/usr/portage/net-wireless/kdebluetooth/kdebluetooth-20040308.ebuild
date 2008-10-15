@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/kdebluetooth/kdebluetooth-20040308.ebuild,v 1.1 2004/03/10 02:58:12 caleb Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/net-wireless/kdebluetooth/kdebluetooth-20040308.ebuild,v 1.1 2004/06/20 09:09:36 linguist Exp $
 
 inherit kde
 need-kde 3

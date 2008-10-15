@@ -1,6 +1,6 @@
 #compdef emerge
 
-# $Id: _portage,v 1.2 2004/01/18 17:51:04 usata Exp $
+# $Id: _portage,v 1.1 2004/06/20 09:09:35 linguist Exp $
 
 # ZSH completion function for emerge
 # Author: baptux <bapt@ifrance.com>

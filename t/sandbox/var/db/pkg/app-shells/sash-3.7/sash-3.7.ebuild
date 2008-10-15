@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/sash/sash-3.7.ebuild,v 1.6 2004/06/02 13:04:11 vapier Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/var/db/pkg/app-shells/sash-3.7/sash-3.7.ebuild,v 1.1 2004/06/20 09:09:38 linguist Exp $
 
 inherit eutils flag-o-matic
 

@@ -2,7 +2,7 @@
 ##
 ## Gentoo system tcsh scripts
 ##
-## $Id: tcsh-complete,v 1.4 2003/12/22 15:31:12 gmsoft Exp $
+## $Id: tcsh-complete,v 1.1 2004/06/20 09:09:35 linguist Exp $
 ##
 ## Based on the TCSH complete.tcsh script, with changed from the TCSHRC
 ## package (http://tcshrc.sourceforge.net)

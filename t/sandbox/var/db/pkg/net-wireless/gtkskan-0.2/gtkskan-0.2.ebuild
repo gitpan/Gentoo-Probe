@@ -1,6 +1,6 @@
 # Copyright 1999-2003 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/gtkskan/gtkskan-0.2.ebuild,v 1.4 2003/02/28 13:18:14 liquidx Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/var/db/pkg/net-wireless/gtkskan-0.2/gtkskan-0.2.ebuild,v 1.1 2004/06/20 09:09:38 linguist Exp $
 
 IUSE="gnome"
 

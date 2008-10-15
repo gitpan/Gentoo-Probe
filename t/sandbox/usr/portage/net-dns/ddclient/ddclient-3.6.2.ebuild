@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/ddclient/ddclient-3.6.2.ebuild,v 1.13 2004/06/05 16:21:43 kloeri Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/net-dns/ddclient/ddclient-3.6.2.ebuild,v 1.1 2004/06/20 09:09:35 linguist Exp $
 
 S=${WORKDIR}/${P}
 DESCRIPTION="A perl based client for dyndns"

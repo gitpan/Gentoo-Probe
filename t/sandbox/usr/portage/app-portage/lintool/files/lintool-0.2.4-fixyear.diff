@@ -20,8 +20,8 @@
 +                    re.compile("^(# Copyright .*"+currentyear+".*)"), 
                      "Copyright statement" ],
                    [ 0, # count
--                    re.compile("^(# \$Header:.*\$)"),
+-                    re.compile("^(# \$Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-portage/lintool/files/lintool-0.2.4-fixyear.diff,v 1.1 2004/06/20 09:09:34 linguist Exp $)"),
 +                    re.compile("^(# \$Header.*\$)"),
-                     "\$Header: \$" ],
+                     "\$Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-portage/lintool/files/lintool-0.2.4-fixyear.diff,v 1.1 2004/06/20 09:09:34 linguist Exp $" ],
                    [ 0, # count
                      re.compile("^(# Distributed under the terms of the GNU General Public License.*)"),

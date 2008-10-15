@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /home/cvsroot/gentoo-x86/net-dns/bind-tools/bind-tools-9.2.3-r1.ebuild,v 1.5 2004/04/11 23:37:34 weeve Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/var/db/pkg/net-dns/bind-tools-9.2.3-r1/bind-tools-9.2.3-r1.ebuild,v 1.1 2004/06/20 09:09:38 linguist Exp $
 
 inherit flag-o-matic
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2006 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-fonts/font-adobe-75dpi/font-adobe-75dpi-1.0.0.ebuild,v 1.7 2006/03/31 19:59:18 flameeyes Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/media-fonts/font-adobe-75dpi/font-adobe-75dpi-1.0.0.ebuild,v 1.2 2008/05/10 11:05:29 rich Exp $
 
 # Must be before x-modular eclass is inherited
 #SNAPSHOT="yes"

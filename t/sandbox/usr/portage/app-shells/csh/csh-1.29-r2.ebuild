@@ -1,6 +1,6 @@
 # Copyright 1999-2004 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/csh/csh-1.29-r2.ebuild,v 1.9 2004/05/15 09:53:08 kugelfang Exp $
+# $Header: /var/cvsroot/perl/Gentoo-Probe/t/sandbox/usr/portage/app-shells/csh/csh-1.29-r2.ebuild,v 1.1 2004/06/20 09:09:34 linguist Exp $
 
 inherit flag-o-matic eutils ccc
 
